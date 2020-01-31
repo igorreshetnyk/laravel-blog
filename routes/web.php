@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('test', function () {
+Route::resource('rest', 'RestTestController')->names('restTest');
 
-//     $name = request('name');
-//     return view('test', [
-//         'name' => $name
-//     ]);
-// });
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
+    Route::resource('posts', 'PostController')->names('blog.posts');
+});
 
-Route::get('test', 'TestController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
