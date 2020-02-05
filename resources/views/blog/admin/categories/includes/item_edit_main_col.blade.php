@@ -30,8 +30,8 @@
                                     class="form-control" placeholder="Select category" required>
                                 @foreach ($categoryList as $categoryOption)
                                     <option value="{{ $categoryOption->id }}"
-                                        @if ($categoryOption->id == $item->parentId) selected @endif>
-                                        {{ $categoryOption->id }} . {{ $categoryOption->title }}
+                                        @if ($categoryOption->id == $item->parent_id) selected @endif>
+                                        {{ $categoryOption->id }}. {{ $categoryOption->title }}
                                     </option>
                                 @endforeach
                            </select>
@@ -41,7 +41,7 @@
                             <label for="description">Description</label>
                             <textarea name="description" id="description"
                             class="form-control" rows="3">
-                            {{ $item->description }}
+                            {{ old('description', $item->description) }}
                             </textarea>
                         </div>
                     </div>
