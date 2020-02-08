@@ -44,7 +44,7 @@ class CategoryController extends BaseController
     public function store(BlogCategoryCreateRequest $request)
     {
         $data = $request->input();
-        if (empty($data['slug'])){
+        if (empty($data['slug'])) {
             $data['slug'] = Str::slug($data['title']);
         }
         // $item = new BlogCategory($data);
@@ -54,12 +54,11 @@ class CategoryController extends BaseController
 
         if ($item) {
             return redirect()->route('blog.admin.categories.edit', [$item->id])
-            ->with(['success' => 'Category save']);
+                ->with(['success' => 'Category save']);
         } else {
             return back()->withErrors(['msg' => 'Save error'])
-            ->withInput();
+                ->withInput();
         }
-
     }
 
     /**
@@ -103,9 +102,13 @@ class CategoryController extends BaseController
                 ->withInput();
         }
         $data = $request->all();
-        $result = $item
-            ->fill($data)
-            ->save();
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['title']);
+        }
+        $result = $item->update($data);
+        // $result = $item
+        //     ->fill($data)
+        //     ->save();
 
         if ($result) {
             return redirect()
