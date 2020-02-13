@@ -57,7 +57,7 @@ class CategoryController extends BaseController
         $data = $request->input();
         if (empty($data['slug'])) {
             $data['slug'] = Str::slug($data['title']);
-        }
+}
         // $item = new BlogCategory($data);
         // $item->save();
 
@@ -84,7 +84,6 @@ class CategoryController extends BaseController
         // $categoryList = BlogCategory::all();
 
         $item = $this->blogCategoryRepository->getEdit($id);
-        //dd($item);
         $categoryList = $this->blogCategoryRepository->getForCombobox();
 
         return view('blog.admin.categories.edit', compact('item', 'categoryList'));
@@ -107,10 +106,10 @@ class CategoryController extends BaseController
         //     'parent_id' =>      ['required','integer', 'exists:blog_categories,id'],
         // ];
 
-        //$validateData = $this->validate($request, $rules);
+        // $validateData = $this->validate($request, $rules);
         // $validateData = $request->validate($rules);
 
-        $item = BlogCategory::find($id);
+        $item = $this->blogCategoryRepository->getEdit($id);
         if (empty($item)) {
             return back()
                 ->withErrors(['msg' => "No category id=[{$id}]"])

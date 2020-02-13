@@ -31,7 +31,7 @@ class BlogCategoryRepository extends CoreRepository
         $result = $this
         ->startConditions()
         ->selectRaw($fileds)
-       ->toBase()
+        ->toBase()
         ->get();
 
         return $result;
@@ -40,10 +40,8 @@ class BlogCategoryRepository extends CoreRepository
     public function getAllWithPaginate($perPage = null)
     {
         $columns = ['id', 'title', 'parent_id'];
-
         $result = $this
         ->startConditions()
-        //->select($colums)
         ->paginate($perPage, $columns);
 
         return $result;

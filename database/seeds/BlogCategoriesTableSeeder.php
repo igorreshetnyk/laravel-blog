@@ -21,7 +21,7 @@ class BlogCategoriesTableSeeder extends Seeder
             'description' => '',
         ];
 
-        for ($i = 1; $i < 10; $i++) {
+        for ($i = 2; $i < 12; $i++) {
             $cName = 'Category #' . $i;
             $parentId = ($i > 4) ? rand(1, 4) : 1;
 
@@ -29,7 +29,7 @@ class BlogCategoriesTableSeeder extends Seeder
                 'title' => $cName,
                 'slug' => Str::slug($cName),
                 'parent_id' => $parentId,
-                'description' => '',
+                'description' => 'description',
             ];
         }
 
