@@ -21,7 +21,7 @@
                 </div>
             </div>
         </form>
-        @if ($item->exists())
+        @if ($item->exists)
             <br>
             <form action="{{ route('blog.admin.posts.destroy', $item->id) }}" method="post">
             @method('DELETE')

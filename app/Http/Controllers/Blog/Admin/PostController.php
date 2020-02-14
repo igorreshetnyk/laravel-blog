@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
+use App\Http\Requests\BlogCategoryCreateRequest;
+use App\Http\Requests\BlogPostCreateRequest;
 use App\Http\Requests\BlogPostUpdateRequest;
+use App\Models\BlogPost;
 use App\Repositories\BlogCategoryRepository;
 use App\Repositories\BlogPostRepository;
 use Carbon\Carbon;
@@ -41,7 +44,10 @@ class PostController extends BaseController
      */
     public function create()
     {
-        dd(__METHOD__);
+        $item = new BlogPost();
+        $categoryList = $this->blogCategoryRepository->getForCombobox();
+
+        return view('blog.admin.posts.edit', compact('item', 'categoryList'));
     }
 
     /**
@@ -50,9 +56,21 @@ class PostController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogPostCreateRequest $request)
     {
-        //
+        $data = $request->input();
+       // $data[] = $data['user_id' => 1,];
+       // dd($data);
+        $item = (new BlogPost())->create($data);
+
+        if ($item) {
+            return redirect()->route('blog.admin.posts.edit', [$item->id])
+            ->with(['success' => 'Saved']);
+        } else {
+            return back()->withErrors(['msg'=>'save error'])
+            ->withInput();
+        }
+
     }
 
     /**
@@ -103,13 +121,15 @@ class PostController extends BaseController
 
         $data = $request->all();
 
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['title']);
-        }
-        if (empty($item->published_at) && $data['is_published']) {
-            $data['published_at'] = Carbon::now();
-        }
-        //dd($data);
+        // in obeserver
+
+        // if (empty($data['slug'])) {
+        //     $data['slug'] = Str::slug($data['title']);
+        // }
+        // if (empty($item->published_at) && $data['is_published']) {
+        //     $data['published_at'] = Carbon::now();
+        // }
+
         $result = $item->update($data);
 
         if ($result) {
