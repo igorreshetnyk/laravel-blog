@@ -87,6 +87,21 @@ class CategoryController extends BaseController
         // $categoryList = BlogCategory::all();
 
         $item = $this->blogCategoryRepository->getEdit($id);
+
+        // $v['title_before'] = $item->title;
+        // $item->title = 'Ajkldsdf jfdlskfj 2323';
+
+        // $v['title_after'] = $item->title;
+        // $v['getAttribute'] = $item->getAttribute('title');
+        // $v['attributesToArray'] = $item->attributesToArray();
+        // $v['attributes'] = $item->attributes['title'];
+        // $v['getAttributeValue'] = $item->getAttributeValue('title');
+        // $v['getMutatedAttributes'] = $item->getMutatedAttributes();
+        // $v['hasGetMutator for title'] = $item->hasGetMutator('title');
+        // $v['toArray'] = $item->toArray();
+
+        // dd($item, $v);
+
         $categoryList = $this->blogCategoryRepository->getForCombobox();
 
         return view('blog.admin.categories.edit', compact('item', 'categoryList'));

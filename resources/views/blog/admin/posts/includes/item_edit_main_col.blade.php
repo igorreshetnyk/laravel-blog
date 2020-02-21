@@ -33,7 +33,7 @@
                             <label for="content_raw">Article</label>
                             <textarea name="content_raw"
                             class="form-control"
-                            rows="10">{{ old('contnet_raw', $item->content_raw) }}
+                            rows="10">{{ old('content_raw', $item->content_raw) }}
                             </textarea>
                         </div>
                     </div>
@@ -62,9 +62,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="except">Short txt</label>
-                            <textarea   name="except"
-                                        id="except"
+                            <label for="excerpt">Short txt</label>
+                            <textarea   name="excerpt"
+                                        id="excerpt"
                                         class="form-control"
                                         rows="3"> {{ old('excerpt', $item->excerpt) }} </textarea>
                         </div>

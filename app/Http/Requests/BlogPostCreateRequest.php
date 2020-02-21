@@ -36,7 +36,14 @@ class BlogPostCreateRequest extends FormRequest
     {
         return [
             'title.required' => 'type article title',
-            'content_raw.min' => 'Min lenght article [:min] symbol',
+            'content_raw.min' => 'Min lenght article :min symbol',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'newTitle',
         ];
     }
 }

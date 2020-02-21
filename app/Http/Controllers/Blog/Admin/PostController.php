@@ -59,18 +59,15 @@ class PostController extends BaseController
     public function store(BlogPostCreateRequest $request)
     {
         $data = $request->input();
-       // $data[] = $data['user_id' => 1,];
-       // dd($data);
         $item = (new BlogPost())->create($data);
 
         if ($item) {
             return redirect()->route('blog.admin.posts.edit', [$item->id])
-            ->with(['success' => 'Saved']);
+                ->with(['success' => 'Saved']);
         } else {
-            return back()->withErrors(['msg'=>'save error'])
-            ->withInput();
+            return back()->withErrors(['msg' => 'save error'])
+                ->withInput();
         }
-
     }
 
     /**
@@ -151,6 +148,14 @@ class PostController extends BaseController
      */
     public function destroy($id)
     {
-        dd(__METHOD__, $id);
+        $result = BlogPost::destroy($id);
+
+        if ($result) {
+            return redirect()
+                ->route('blog.admin.posts.index')
+                ->with(['success' => "Deleted note [$id]"]);
+        } else {
+            return back()->withErrors(['msg' => 'deleting error']);
+        }
     }
 }

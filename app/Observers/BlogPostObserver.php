@@ -42,7 +42,13 @@ class BlogPostObserver
      */
     public function deleted(BlogPost $blogPost)
     {
-        //
+        dd(__METHOD__, $blogPost);
+    }
+
+    public function deleting(BlogPost $blogPost)
+    {
+        // dd(__METHOD__, $blogPost);
+        // return false;
     }
 
     /**
@@ -71,7 +77,6 @@ class BlogPostObserver
     {
         if (empty($blogPost->published_at) && $blogPost->is_published) {
             $blogPost->published_at = Carbon::now();
-            //dd($blogPost->published_at);
         }
     }
 
