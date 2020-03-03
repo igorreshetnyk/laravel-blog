@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\DiggingDeeperController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -34,6 +36,8 @@ Route::group($groupData, function () {
     Route::resource('posts', 'PostController')
         ->except(['show'])
         ->names('blog.admin.posts');
+
+    Route::get('diggingdiper', 'DiggingDeeperController@collection');
 });
 
 //<<
