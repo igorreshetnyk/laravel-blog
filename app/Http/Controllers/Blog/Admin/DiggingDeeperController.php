@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Blog\Admin;
 
 use App\Http\Controllers\Blog\Admin\BaseController;
+use App\Jobs\GenerateCatalog\GenerateCatalogMainJob;
 use App\Models\BlogPost;
 use App\Repositories\BlogPostRepository;
 use Carbon\Carbon;
@@ -10,7 +11,8 @@ use stdClass;
 
 class DiggingDeeperController extends BaseController
 {
-    public function collection(BlogPostRepository $blogPostRepository) {
+    public function collection(BlogPostRepository $blogPostRepository)
+    {
 
         $testCollection = BlogPost::withTrashed()->get();
 
@@ -88,13 +90,16 @@ class DiggingDeeperController extends BaseController
 
         // dd(compact('filtred'));
 
-        $sortedSimpleCollection = collect([5,4,6,3,9,6,8])->sort();
+        $sortedSimpleCollection = collect([5, 4, 6, 3, 9, 6, 8])->sort();
         //dd($sortedSimpleCollection);
         $sortAscConllection = $collection->sortBy('created_at');
         $sortDescConllection = $collection->sortByDesc('id');
 
         dd(compact('sortAscConllection', 'sortDescConllection', 'sortedSimpleCollection'));
+    }
 
-
+    public function prepareCatalog()
+    {
+        GenerateCatalogMainJob::dispatch();
     }
 }

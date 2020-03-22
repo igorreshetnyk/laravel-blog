@@ -42,7 +42,7 @@ class BlogPostObserver
      */
     public function deleted(BlogPost $blogPost)
     {
-        dd(__METHOD__, $blogPost);
+        //dd(__METHOD__, $blogPost);
     }
 
     public function deleting(BlogPost $blogPost)
