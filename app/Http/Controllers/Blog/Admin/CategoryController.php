@@ -19,10 +19,12 @@ class CategoryController extends BaseController
         parent::__construct();
         $this->blogCategoryRepository = app(BlogCategoryRepository::class);
     }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|
+     * \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -36,7 +38,7 @@ class CategoryController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
@@ -49,14 +51,14 @@ class CategoryController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(BlogCategoryCreateRequest $request)
     {
         $data = $request->input();
 
-            // in observer
+        // in observer
 
 //         if (empty($data['slug'])) {
 //             $data['slug'] = Str::slug($data['title']);
@@ -70,7 +72,7 @@ class CategoryController extends BaseController
             return redirect()->route('blog.admin.categories.edit', [$item->id])
                 ->with(['success' => 'Category save']);
         } else {
-            return back()->withErrors(['msg' => 'Save error'])
+            return back()->withErrors(array('msg' => 'Save error'))
                 ->withInput();
         }
     }
@@ -78,8 +80,9 @@ class CategoryController extends BaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\Foundation\Application|
+     * \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
@@ -110,9 +113,9 @@ class CategoryController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(BlogCategoryUpdateRequest $request, $id)
     {

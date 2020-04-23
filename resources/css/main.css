@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Miriam+Libre&display=swap');
+
+.logo:hover {
+    -o-transform: translateY(-1px) scale(1.05);
+    -ms-transform: translateY(-1px) scale(1.05);
+    -moz-transform: translateY(-1px) scale(1.05);
+    -webkit-transform: translateY(-1px) scale(1.05);
+    transform: translateY(-1px) scale(1.05);
+    transition: all 0.2s ease-out;
+}
+
+.mynavbar {
+    padding-top: 1em;
+}
+
+.nav-link {
+    cursor: pointer;
+    color: black;
+    font-family: 'Miriam Libre', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12pt;
+    -webkit-font-smoothing: antialiased;
+}
+
+.navbar-brand {
+    cursor: pointer;
+    color: black;
+}
+
+.nav-link:hover {
+    color: #00ADB5;
+    -o-transform: translateY(-1px) scale(1.05);
+    -ms-transform: translateY(-1px) scale(1.05);
+    -moz-transform: translateY(-1px) scale(1.05);
+    -webkit-transform: translateY(-1px) scale(1.05);
+    transform: translateY(-1px) scale(1.05);
+    transition: all 0.2s;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.flex {
+    margin-top: 30pt;
+    font-family: 'Miriam Libre', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.img-circle {
+    border-radius: 50%;
+    margin-right: 1%;
+}
+
+.img-size {
+    width: 50px;
+    height: 50px;
+}
+
+.pull-right {
+    float: right;
+    margin-top: 12pt;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+.card-text-margin {
+    margin-top: 5%;
+    margin-bottom: 7%;
+}
+
+.card-body-shadow {
+    box-shadow: 0 0 5px rgba(172, 158, 158, 0.5);
+    border-radius: 5px;
+}
+
+.card-body-shadow:hover {
+    box-shadow: 0 0 15px rgba(172, 158, 158, 0.5);
+}
+
+.card-text-link {
+    color: black;
+    font-family: 'Miriam Libre', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+.copiright {
+    color: black;
+    text-decoration: none;
+}
+.copiright>a :hover {
+    color: #7A94A9;
+    text-decoration: none;
+}
+
+.link-center {
+    margin-top: 35pt;
+    margin-bottom: 35pt;
+}
+
+.card-text-link:hover {
+    text-decoration: none;
+    color: rgb(87, 71, 71);
+}
+
+.flex:hover {
+    -o-transform: translateY(-4px);
+    -ms-transform: translateY(-4px);
+    -moz-transform: translateY(-4px);
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    transition: all 0.1s ease-out;
+}
+
+hr {
+    color: black;
+}
+
+.article {
+    margin-top: 4%;
+}
+
+.article-title {
+    margin-top: 10%;
+    margin-bottom: 8%;
+}
+
+.small-article {
+    margin-left: 25px;
+}
+
+.img-article {
+    margin: 15px;
+}
+
+.card-article {
+    margin-top: 50pt;
+}
+
+.main-font {
+    /* margin-top: 30pt; */
+    font-family: 'Miriam Libre', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.button {
+    margin-left: 80.5%;
+}
+
+
+
+
+/* ul.pagination li {
+    display: inline;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+ul.pagination li a {
+    color: #7A94A9;
+    /* text-decoration: none; */
+    transition: background-color .3s;
+}
+
+ul.pagination li a span.active {
+    background-color: red;
+    color: white;
+}
+
+ul.pagination li span.active {
+    background-color: #687282;
+    color: white;
+}
+
+ul.pagination li a:hover {
+    background-color: #04AEB6;
+    color: white;
+    border: 1px solid #687282;
+}
+

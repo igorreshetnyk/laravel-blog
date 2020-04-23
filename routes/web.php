@@ -13,12 +13,14 @@
 
 use App\Http\Controllers\DiggingDeeperController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
+//>> Blog section
+
+Route::get('/', 'Blog\PostController@index');
+Route::get('/post/{slug}', 'Blog\PostController@show')->name('post.show');
+
+//<<
 //>> Admin section
 
 $groupData = [
@@ -36,8 +38,6 @@ Route::group($groupData, function () {
     Route::resource('posts', 'PostController')
         ->except(['show'])
         ->names('blog.admin.posts');
-
-    Route::get('diggingdiper', 'DiggingDeeperController@collection');
 });
 
 //<<
