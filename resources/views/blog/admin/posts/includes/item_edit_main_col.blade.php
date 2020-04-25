@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <label for="content_raw">Article</label>
                             <textarea name="content_raw"
-                            class="form-control"
+                            class="content_raw form-control"
                             rows="10">{{ old('content_raw', $item->content_raw) }}
                             </textarea>
                         </div>
@@ -89,3 +89,4 @@
         </div>
     </div>
 </div>
+

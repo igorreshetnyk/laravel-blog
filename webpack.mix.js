@@ -11,9 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 mix.copy('resources/images', 'public/images')
-    .js([
-    'resources/js/app.js',
-    'resources/js/bootstrap.js'
-    ],
-         'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+    // .js('node_modules/bootstrap/dist/js/bootstrap.js','public/js')
+    // .js('node_modules/popper.js/dist/popper.js', 'public/js')
+    // .js('node_modules/jquery/dist/jquery.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .styles('resources/css/main.css', 'public/css/main.css')
+    .sourceMaps();

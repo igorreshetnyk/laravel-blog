@@ -14,7 +14,8 @@
                             {{ \Str::words($post->excerpt, 18) }}</a></p>
                         <a href="#"><img class="img-circle img-size" src="images/user1-128x128.jpg" alt="photo"></a>
                         <a class="card-text-link" href="#"><small class="text-muted">Vasya Pupkin</small></a>
-                        <small class="pull-right text-muted">July 08, 2019</small>
+                        <small class="pull-right text-muted">{{ $post->published_at ? Carbon\Carbon::parse($post->published_at)
+                            ->format('d.M. H:i') : ''  }}</small>
                     </div>
                 </div>
             @endforeach

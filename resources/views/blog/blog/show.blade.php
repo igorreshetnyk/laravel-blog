@@ -11,7 +11,7 @@
                             <h3 class="article-title"> {{ $post->title }} </h3>
                         </header>
                         <div class="entry-content">
-                            {!! $post->content_html !!}
+                            {!! $post->content_raw !!}
                         </div>
                     </div>
                 </article>

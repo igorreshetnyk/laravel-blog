@@ -41,4 +41,11 @@
         </form>
         @endif
 </div>
+
+<script>
+    tinymce.init({
+        selector:'textarea.content_raw',
+    });
+</script>
+
 @endsection

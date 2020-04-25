@@ -23,6 +23,10 @@ Route::get('/post/{slug}', 'Blog\PostController@show')->name('post.show');
 //<<
 //>> Admin section
 
+// Route::get('/', function () {
+//     //
+// })->middleware('role:admin');
+
 $groupData = [
     'namespace' => 'Blog\Admin',
     'prefix'    => 'admin/blog',
@@ -32,12 +36,14 @@ Route::group($groupData, function () {
     $methods = ['index', 'edit', 'store', 'update', 'create'];
     Route::resource('categories', 'CategoryController')
         ->only($methods)
-        ->names('blog.admin.categories');
+        ->names('blog.admin.categories')
+        ->middleware('role:admin');
 
     //BlogPosts
     Route::resource('posts', 'PostController')
         ->except(['show'])
-        ->names('blog.admin.posts');
+        ->names('blog.admin.posts')
+        ->middleware('role:admin');
 });
 
 //<<
