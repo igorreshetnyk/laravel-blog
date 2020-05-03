@@ -36,6 +36,6 @@ class BlogPostRepository extends CoreRepository
 
     public function getForShow($slug)
     {
-        return $this->startConditions()->where('slug', $slug)->firstOrFail();
+        return $this->startconditions()->where('slug', $slug)->firstOrFail();
     }
 }

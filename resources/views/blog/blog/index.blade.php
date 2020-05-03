@@ -20,7 +20,7 @@
                 </div>
             @endforeach
 
-            <div class="row justify-content-md-center link-center pagination">
+            <div class="row justify-content-center link-center pagination">
                 {{-- <a class="link-center" href="">CHECK MORE ARTICLES</a> --}}
                 {{ $posts->links() }}
             </div>

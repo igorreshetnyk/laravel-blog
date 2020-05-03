@@ -95,7 +95,7 @@
         @yield('content')
 
         <hr>
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-center">
             <a class="copiright link-center" href="">Copiright by Igor Rsh</a>
         </div>
     </div>
