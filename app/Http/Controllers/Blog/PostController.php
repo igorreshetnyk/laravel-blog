@@ -65,8 +65,9 @@ class PostController extends BaseController
     public function show($slug)
     {
         $post = $this->blogPostRepository->getForShow($slug);
+        $category = $this->blogCategoryRepository->getEdit($post->category_id);
 
-        return view('blog.blog.show', compact('post'));
+        return view('blog.blog.show', compact('post', 'category'));
     }
 
     /**

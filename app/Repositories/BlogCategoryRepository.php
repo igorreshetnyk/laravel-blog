@@ -29,10 +29,10 @@ class BlogCategoryRepository extends CoreRepository
         ]);
 
         $result = $this
-        ->startConditions()
-        ->selectRaw($fileds)
-        ->toBase()
-        ->get();
+            ->startConditions()
+            ->selectRaw($fileds)
+            ->toBase()
+            ->get();
 
         return $result;
     }
@@ -41,10 +41,10 @@ class BlogCategoryRepository extends CoreRepository
     {
         $columns = ['id', 'title', 'parent_id'];
         $result = $this
-        ->startConditions()
-        ->select($columns)
-        ->with(['parentCategory:id,title'])
-        ->paginate($perPage);
+            ->startConditions()
+            ->select($columns)
+            ->with(['parentCategory:id,title'])
+            ->paginate($perPage);
 
         return $result;
     }
