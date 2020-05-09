@@ -6,11 +6,11 @@
     @include('blog.admin.posts.includes.result_messages')
 
     @if ($item->exists)
-        <form method="POST" action=" {{ route('blog.admin.posts.update', $item->id) }} ">
+    <form method="POST" action=" {{ route('blog.admin.posts.update', $item->id) }} ">
         @method('PATCH')
-    @else
+        @else
         <form method="POST" action=" {{ route('blog.admin.posts.store') }} ">
-    @endif
+            @endif
             @csrf
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -22,8 +22,8 @@
             </div>
         </form>
         @if ($item->exists)
-            <br>
-            <form action="{{ route('blog.admin.posts.destroy', $item->id) }}" method="post">
+        <br>
+        <form action="{{ route('blog.admin.posts.destroy', $item->id) }}" method="post">
             @method('DELETE')
             @csrf
             <div class="row justify-content-center">
@@ -43,8 +43,8 @@
 </div>
 
 <script>
-    tinymce.init({
-        selector:'textarea.content_raw',
+    $(document).ready(function() {
+    $('#summernote').summernote();
     });
 </script>
 
