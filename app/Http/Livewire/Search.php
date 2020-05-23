@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\BlogPost;
-use App\Repositories\BlogPostRepository;
 use Livewire\Component;
 
 class Search extends Component
@@ -13,8 +12,9 @@ class Search extends Component
 
     public function updatedQuery()
     {
-        $this->posts = BlogPost::where('title', 'like', '%'. $this->query . '%')->limit(5)->get();
-        $res = BlogPostRepository::class;
+        if (strlen($this->query) > 2) {
+            $this->posts = BlogPost::where('title', 'like', '%' . $this->query . '%')->limit(5)->get();
+        }
     }
 
     public function render()

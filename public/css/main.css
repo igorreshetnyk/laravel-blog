@@ -182,6 +182,7 @@ input.dropdown-item {
 
 .search-form {
     padding-top: 10px;
+    padding-left: 8px;
     cursor: pointer;
     color: #00ADB5;
 }
